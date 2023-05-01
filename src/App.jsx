@@ -56,6 +56,9 @@ function App() {
 console.log(gameWon)
 
   function rollDice() {
+    gameWon === true ? 
+    setrandomArrayState(getRandomArray())
+    :
     setrandomArrayState((prevrandomArrayState) => {
       return prevrandomArrayState.map(item => {
         return item.isHeld === true ? item : { value: createRandomNumber(), isHeld: false, id: uuid() }
