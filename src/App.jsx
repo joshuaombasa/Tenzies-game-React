@@ -9,6 +9,8 @@ function App() {
 
   const [randomArrayState, setrandomArrayState] = React.useState(getRandomArray())
 
+  const [gameWon, setGameWon] = React.useState(false)
+
   function getRandomArray() {
     const randomArray = []
     for (let i = 0; i < 10; i++) {
@@ -42,7 +44,16 @@ function App() {
     })
   }
 
+ 
   
+
+  React.useEffect(() => {
+    const allBoxesHeld = randomArrayState.every((item) => item.isHeld === true)
+    const allBoxValuesMatch = randomArrayState.every((item) => item.value === randomArrayState[0].value)
+    setGameWon(allBoxValuesMatch && allBoxesHeld)
+  }, [randomArrayState])
+
+console.log(gameWon)
 
   function rollDice() {
     setrandomArrayState((prevrandomArrayState) => {
@@ -54,7 +65,7 @@ function App() {
 
   return (
     <div className='container'>
-      <Confetti />
+      {gameWon === true && <Confetti />}
       <div className="boxes--container">
         <h1 className="title">Tenzies</h1>
         <h4 className="game--details">
