@@ -1,5 +1,6 @@
 import React from 'react'
 import uuid from 'react-uuid';
+import Confetti from 'react-confetti'
 import Box from './Box'
 
 import './App.css'
@@ -11,11 +12,15 @@ function App() {
   function getRandomArray() {
     const randomArray = []
     for (let i = 0; i < 10; i++) {
-      const randomNumber = Math.floor(Math.random() * 6) + 1
-      randomArray.push({ value: randomNumber, isHeld: false, id: uuid() })
+      randomArray.push({ value: createRandomNumber(), isHeld: false, id: uuid() })
     }
 
     return randomArray
+  }
+
+  function createRandomNumber() {
+    const randomNumber = Math.floor(Math.random() * 6) + 1
+    return randomNumber
   }
 
   const boxesJsx = randomArrayState.map((item) => {
@@ -30,11 +35,26 @@ function App() {
   
 
   function toggleIsHeld(id) {
-    console.log('clicked')
+    setrandomArrayState((prevrandomArrayState) => {
+      return prevrandomArrayState.map(item => {
+        return item.id === id ? {...item, isHeld: !item.isHeld} : item
+      })
+    })
+  }
+
+  
+
+  function rollDice() {
+    setrandomArrayState((prevrandomArrayState) => {
+      return prevrandomArrayState.map(item => {
+        return item.isHeld === true ? item : { value: createRandomNumber(), isHeld: false, id: uuid() }
+      })
+    })
   }
 
   return (
     <div className='container'>
+      <Confetti />
       <div className="boxes--container">
         <h1 className="title">Tenzies</h1>
         <h4 className="game--details">
@@ -43,6 +63,7 @@ function App() {
         <div className="buttons--cotainer">
           {boxesJsx}
         </div>
+        <button onClick={rollDice}>Roll</button>
       </div>
     </div>
   )
