@@ -7,15 +7,15 @@ import './App.css'
 
 function App() {
 
-  // const [randomArrayState, setrandomArrayState] = React.useState(getRandomArray())
+  const [randomArrayState, setrandomArrayState] = React.useState(getRandomArray())
 
   const [gameWon, setGameWon] = React.useState(false)
 
-  function getRandomArray() {
-    const randomArray = []
-    for (let i = 0; i < 10; i++) {
-      randomArray.push({ value: createRandomNumber(), isHeld: false, id: uuid() })
-    }
+  // function getRandomArray() {
+  //   const randomArray = []
+  //   for (let i = 0; i < 10; i++) {
+  //     randomArray.push({ value: createRandomNumber(), isHeld: false, id: uuid() })
+  //   }
 
     return randomArray
   }
