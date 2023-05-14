@@ -20,19 +20,19 @@ function App() {
     return randomArray
   }
 
-  // function createRandomNumber() {
-  //   const randomNumber = Math.floor(Math.random() * 6) + 1
-  //   return randomNumber
-  // }
+  function createRandomNumber() {
+    const randomNumber = Math.floor(Math.random() * 6) + 1
+    return randomNumber
+  }
 
-  // const boxesJsx = randomArrayState.map((item) => {
-  //   return <Box
-  //     value={item.value}
-  //     isHeld={item.isHeld}
-  //     id={item.id}
-  //     toggleIsHeld={toggleIsHeld}
-  //     key={item.id} />
-  // })
+  const boxesJsx = randomArrayState.map((item) => {
+    return <Box
+      value={item.value}
+      isHeld={item.isHeld}
+      id={item.id}
+      toggleIsHeld={toggleIsHeld}
+      key={item.id} />
+  })
 
   
 
@@ -46,24 +46,24 @@ function App() {
 
  
 
-  React.useEffect(() => {
-    const allBoxesHeld = randomArrayState.every((item) => item.isHeld === true)
-    const allBoxValuesMatch = randomArrayState.every((item) => item.value === randomArrayState[0].value)
-    setGameWon(allBoxValuesMatch && allBoxesHeld)
-  }, [randomArrayState])
+//   React.useEffect(() => {
+//     const allBoxesHeld = randomArrayState.every((item) => item.isHeld === true)
+//     const allBoxValuesMatch = randomArrayState.every((item) => item.value === randomArrayState[0].value)
+//     setGameWon(allBoxValuesMatch && allBoxesHeld)
+//   }, [randomArrayState])
 
-console.log(gameWon)
+// console.log(gameWon)
 
-  function rollDice() {
-    gameWon === true ? 
-    setrandomArrayState(getRandomArray())
-    :
-    setrandomArrayState((prevrandomArrayState) => {
-      return prevrandomArrayState.map(item => {
-        return item.isHeld === true ? item : { value: createRandomNumber(), isHeld: false, id: uuid() }
-      })
-    })
-  }
+//   function rollDice() {
+//     gameWon === true ? 
+//     setrandomArrayState(getRandomArray())
+//     :
+//     setrandomArrayState((prevrandomArrayState) => {
+//       return prevrandomArrayState.map(item => {
+//         return item.isHeld === true ? item : { value: createRandomNumber(), isHeld: false, id: uuid() }
+//       })
+//     })
+//   }
 
   return (
     <div className='container'>
