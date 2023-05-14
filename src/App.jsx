@@ -45,7 +45,6 @@ function App() {
   }
 
  
-  
 
   React.useEffect(() => {
     const allBoxesHeld = randomArrayState.every((item) => item.isHeld === true)
