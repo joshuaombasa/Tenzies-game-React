@@ -7,7 +7,7 @@ import './App.css'
 
 function App() {
 
-  const [randomArrayState, setrandomArrayState] = React.useState(getRandomArray())
+  // const [randomArrayState, setrandomArrayState] = React.useState(getRandomArray())
 
   const [gameWon, setGameWon] = React.useState(false)
 
