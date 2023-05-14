@@ -11,28 +11,28 @@ function App() {
 
   const [gameWon, setGameWon] = React.useState(false)
 
-  // function getRandomArray() {
-  //   const randomArray = []
-  //   for (let i = 0; i < 10; i++) {
-  //     randomArray.push({ value: createRandomNumber(), isHeld: false, id: uuid() })
-  //   }
+  function getRandomArray() {
+    const randomArray = []
+    for (let i = 0; i < 10; i++) {
+      randomArray.push({ value: createRandomNumber(), isHeld: false, id: uuid() })
+    }
 
     return randomArray
   }
 
-  function createRandomNumber() {
-    const randomNumber = Math.floor(Math.random() * 6) + 1
-    return randomNumber
-  }
+  // function createRandomNumber() {
+  //   const randomNumber = Math.floor(Math.random() * 6) + 1
+  //   return randomNumber
+  // }
 
-  const boxesJsx = randomArrayState.map((item) => {
-    return <Box
-      value={item.value}
-      isHeld={item.isHeld}
-      id={item.id}
-      toggleIsHeld={toggleIsHeld}
-      key={item.id} />
-  })
+  // const boxesJsx = randomArrayState.map((item) => {
+  //   return <Box
+  //     value={item.value}
+  //     isHeld={item.isHeld}
+  //     id={item.id}
+  //     toggleIsHeld={toggleIsHeld}
+  //     key={item.id} />
+  // })
 
   
 
